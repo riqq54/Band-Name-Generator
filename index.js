@@ -4,15 +4,36 @@ import bodyParser from "body-parser";
 const app = express();
 const port = 3000;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
+
+const d = new Date();
+const year = d.getFullYear();
+
+const data = {
+    title: "",
+    year: year
+};
 
 app.get("/", (req, res)=>{
-    res.render("index.ejs");
+    data.title = "Welcome to the Band Generator 🤟";
+    res.render("index.ejs", data);
+})
+
+app.post("/submit", (req, res)=>{
+
+    var randomNumber1 = (Math.floor(Math.random() * adj.length));
+    var randomNumber2 = (Math.floor(Math.random() * noun.length));
+    var adjetivo = adj[randomNumber1];
+    var substantivo = noun[randomNumber2];
+
+    data.title = adjetivo + " " + substantivo;
+
+    res.render("index.ejs", data);
 })
 
 app.listen(port, ()=>{
-    console.log(`Server is running on port ${port}`);
+    console.log(`Server running on port ${port}`);
 })
 
 const adj = [
@@ -5675,4 +5696,3 @@ const adj = [
     "zoot-suit",
     "zucchini",
   ];
-  

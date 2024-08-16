@@ -1,0 +1,36 @@
+body {
+    background-color: #222;
+    font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+main{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0; /* remove as margens e deixa sem  as barras de scroll*/
+    left: 0;
+    color: plum;
+}
+
+input{
+    font-size: 1rem;
+    background: #888;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    color: plum;
+}
