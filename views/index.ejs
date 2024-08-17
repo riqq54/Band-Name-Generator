@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Band Name Generator</title>
+<%- include('partials/header.ejs') %>
 
-    <link rel="stylesheet" href="/styles/css.css">
-</head>
-<body>
-    <main>
+    <% if (locals.bandName) { %>
 
-        <h1>Generate a Random Band Name 🤟</h1>
-        <form action="/submit">
-            <input type="submit" value="Generate Band Name">
-        </form>
+     <h1> <%= bandName %></h1>
 
-    </main>
+    <% } else { %>
 
-    <footer>
-        © Copyright - 2024
-    </footer>
-</body>
-</html>
+    <h1>Generate a Random Band Name 🤟</h1>
+
+    <% } %>
+
+    <form action="/submit" method="POST">
+        <input type="submit" value="Generate Band Name">
+    </form>
+
+<%- include('partials/footer.ejs') %>

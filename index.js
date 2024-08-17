@@ -8,12 +8,37 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get("/", (req, res)=>{
-    res.render("index.ejs");
+
+  res.render("index.ejs");
+})
+
+app.post("/submit", (req, res)=>{
+
+  var bandAdj = adj[Math.floor(Math.random() * adj.length)];
+  var bandNoun = noun[Math.floor(Math.random() * noun.length)];
+  var bandEmoji = emoji[Math.floor(Math.random() * emoji.length)];
+
+
+  var bandName =  bandEmoji + "" + bandAdj + " " + bandNoun + "" + bandEmoji;
+
+  res.render("index.ejs", {bandName});
 })
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`);
 })
+
+const emoji =[
+  "🤘",
+  "🔥",
+  "💀",
+  "🦴",
+  "👹",
+  "🎙",
+  "🎸",
+  "🌩",
+  "🧛‍♂️"
+]
 
 const adj = [
     "abandoned",
